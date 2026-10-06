@@ -1,0 +1,14 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@300;500;900&display=swap');
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --color-ink: #0F0F0F; --color-paper: #F8F5F0; --color-gold: #C9A86C; --color-vermilion: #D8432B;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-jp: "Noto Sans JP", "Inter", sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { @apply bg-paper text-ink font-sans antialiased dark:bg-ink dark:text-paper; }
+:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.hero-rise { animation: rise 1s cubic-bezier(.2,.7,.2,1) both; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
